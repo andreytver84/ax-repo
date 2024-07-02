@@ -26,7 +26,7 @@ const uniq = (arr1, arr2) => {
   diffFilter([1, 2, 3], [1, 3, 4, 5]);
   
   const objTemp = {
-    city: "Tver",
+    city: "Moscow",
     country: "Russia"
   }
   
@@ -34,7 +34,7 @@ const uniq = (arr1, arr2) => {
     const invertObj = Object.fromEntries(
       Object.entries(obj).map(([key,value]) => [value,key])
     )
-    console.log(invertObj)
+    return invertObj;
   }
   
   myInvert(objTemp);
