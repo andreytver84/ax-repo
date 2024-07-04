@@ -26,3 +26,5 @@ stack.push(10);
 console.log(stack.peek()); // 10
 console.log(stack.pop()); // 10
 console.log(stack.size()); // 3
+
+export default Stack;
