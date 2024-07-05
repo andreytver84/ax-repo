@@ -26,7 +26,7 @@ const uniq = (arr1, arr2) => {
   diffFilter([1, 2, 3], [1, 3, 4, 5]);
   
   const objTemp = {
-    city: "Moscow",
+    city: "Tver",
     country: "Russia"
   }
   
