@@ -4,11 +4,7 @@ class Astronaut {
   }
   introduce() {
     console.log(
-      "Greetings, I am " +
-        this.name +
-        " and I am on the " +
-        this.mission +
-        " mission.."
+      `Greetings, I am ${this.name} and I am on the ${this.mission} mission..`
     );
   }
 }

@@ -4,11 +4,7 @@ class Astronaut {
   }
   introduce() {
     console.log(
-      "Greetings, I am " +
-        this.name +
-        " and I am on the " +
-        this.mission +
-        " mission.."
+      `Greetings, I am ${this.name} and I am on the ${this.mission} mission..`
     );
   }
 }
@@ -38,12 +34,7 @@ class Commander extends Astronaut {
   }
   introduce() {
     console.log(
-      " Greetings, I am Commander " +
-        this.name +
-        " engaged in the " +
-        this.mission +
-        " mission holding the rank of " +
-        this.rank
+      `Greetings, I am Commander ${this.name} engaged in the ${this.mission} mission holding the rank of ${this.rank}`
     );
   }
   get rankInfo() {
