@@ -1,5 +1,5 @@
 const invertCase = (str) => {
-  const charArr = [...str.slice()];
+  const charArr = [...str];
 
   const inverCharArr = charArr.map(
     (char) =>
