@@ -18,7 +18,7 @@ const isHappyNumber = (num) => {
       result = sumOfSquareDigits(result);
     } else if (result === 1) {
       console.log(
-        `Число ${num} счастливое т.к результат вычислений равен: ${result}`
+        `Число ${num} счастливое т.к результат вычислений на итерции номер ${i} равен: ${result}`
       );
       return;
     }
