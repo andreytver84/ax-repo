@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import PostItem from "../postItem/PostItem";
 import styles from "./PostList.module.scss";
 import { useFetch } from "../../hooks/useFetch";
@@ -15,7 +14,8 @@ const PostList = () => {
     <>
       <h1>PostList</h1>
       <ul className={styles.postList}>
-        {news.length > 0 &&
+        {news &&
+          news.length > 0 &&
           news.map((post) => (
             <li>
               <PostItem post={post} key={post.id}></PostItem>
