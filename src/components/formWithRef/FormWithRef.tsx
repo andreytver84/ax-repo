@@ -36,7 +36,7 @@ const FormWithRef = () => {
   const formButtonHandler = (e) => {
     e.preventDefault();
     console.log(JSON.stringify(form));
-    //setUrl("https://jsonplaceholder.typicode.com/posts");
+    setUrl("https://jsonplaceholder.typicode.com/posts");
   };
 
   useEffect(() => {
