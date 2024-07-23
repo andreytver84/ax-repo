@@ -3,6 +3,7 @@ import styles from "./FormWithRef.module.scss";
 import { useFetch } from "../../hooks/useFetch";
 
 const FormWithRef = () => {
+  const [required, setRequired] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -10,15 +11,21 @@ const FormWithRef = () => {
   });
 
   const inputEmailRef = useRef(null);
-  const [url, setUrl] = useState();
 
-  const { data, error } = useFetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(form),
-  });
+  if (required) {
+    //(() => console.log(form))();
+  }
+
+  const { data, error } = useFetch(
+    "https://jsonplaceholder.typicode.com/posts",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    }
+  );
 
   useEffect(() => {
     if (inputEmailRef.current) {
@@ -31,22 +38,25 @@ const FormWithRef = () => {
       ...form,
       [e.target.name]: e.target.value,
     });
+
+    if (form.name !== "" && form.email !== "" && form.message !== "") {
+      setRequired(true);
+    }
   };
 
   const formButtonHandler = (e) => {
     e.preventDefault();
-    console.log(JSON.stringify(form));
-    setUrl("https://jsonplaceholder.typicode.com/posts");
+    setForm(JSON.stringify(form));
   };
 
-  useEffect(() => {
-    if (data) {
-      console.log("Данные успешно отправлены:", data);
-    }
-    if (error) {
-      console.error("Ошибка при отправке данных:", error);
-    }
-  }, [data, error]);
+  //   useEffect(() => {
+  //     if (data) {
+  //       console.log("Данные успешно отправлены:", data);
+  //     }
+  //     if (error) {
+  //       console.error("Ошибка при отправке данных:", error);
+  //     }
+  //   }, [data, error]);
 
   return (
     <form className={styles.form}>
@@ -68,7 +78,7 @@ const FormWithRef = () => {
         name="message"
         placeholder="Post message"
       ></textarea>
-      <button type="submit" onClick={formButtonHandler}>
+      <button disabled={!required} type="submit" onClick={formButtonHandler}>
         Send
       </button>
     </form>

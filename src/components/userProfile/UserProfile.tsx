@@ -2,7 +2,8 @@ import { useFetch } from "../../hooks/useFetch";
 
 const UserProfile = () => {
   const { data, loading, error } = useFetch(
-    "https://jsonplaceholder.typicode.com/users"
+    "https://jsonplaceholder.typicode.com/users",
+    {}
   );
 
   if (loading) {
@@ -11,7 +12,7 @@ const UserProfile = () => {
   if (error) {
     return <div>Error</div>;
   }
-  if (!data && data.length == 0) {
+  if (!data) {
     return null;
   }
   return (
