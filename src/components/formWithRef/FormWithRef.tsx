@@ -1,31 +1,35 @@
-import { useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import styles from "./FormWithRef.module.scss";
 import { useFetch } from "../../hooks/useFetch";
 
-const FormWithRef = () => {
-  const [required, setRequired] = useState(false);
-  const [form, setForm] = useState({
+interface IFormState {
+  name: string;
+  email: string;
+  message: string;
+}
+
+const FormWithRef: FC = () => {
+  const [required, setRequired] = useState<boolean>(false);
+  const [url, setUrl] = useState<string>("");
+  const [form, setForm] = useState<IFormState>({
     name: "",
     email: "",
     message: "",
   });
 
-  const inputEmailRef = useRef(null);
+  const inputEmailRef = useRef<HTMLInputElement>(null);
 
   if (required) {
     //(() => console.log(form))();
   }
 
-  const { data, error } = useFetch(
-    "https://jsonplaceholder.typicode.com/posts",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    }
-  );
+  const { data, error } = useFetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(form),
+  });
 
   useEffect(() => {
     if (inputEmailRef.current) {
@@ -33,7 +37,7 @@ const FormWithRef = () => {
     }
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -44,19 +48,19 @@ const FormWithRef = () => {
     }
   };
 
-  const formButtonHandler = (e) => {
+  const formButtonHandler = (e: React.ChangeEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setForm(JSON.stringify(form));
+    setUrl("https://jsonplaceholder.typicode.com/posts");
   };
 
-  //   useEffect(() => {
-  //     if (data) {
-  //       console.log("Данные успешно отправлены:", data);
-  //     }
-  //     if (error) {
-  //       console.error("Ошибка при отправке данных:", error);
-  //     }
-  //   }, [data, error]);
+  useEffect(() => {
+    if (data) {
+      console.log("Данные успешно отправлены:", data);
+    }
+    if (error) {
+      console.error("Ошибка при отправке данных:", error);
+    }
+  }, [data, error]);
 
   return (
     <form className={styles.form}>

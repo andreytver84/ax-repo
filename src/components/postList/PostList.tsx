@@ -1,17 +1,16 @@
 import PostItem from "../postItem/PostItem";
 import styles from "./PostList.module.scss";
 import { useFetch } from "../../hooks/useFetch";
+import { FC } from "react";
 
 const BASE_URL = import.meta.env.VITE_NEWS_URL;
 const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
-const PostList = () => {
+const PostList: FC = () => {
   const { data, error, loading } = useFetch(
     `${BASE_URL}latest-news?apiKey=${API_KEY}`,
     {}
   );
-
-  console.log("our data", data);
 
   if (loading) {
     return <div>Loading...</div>;

@@ -1,11 +1,20 @@
+import { FC } from "react";
 import styles from "./PostItem.module.scss";
 
-const PostItem = (data) => {
-  const postData = data.post;
+interface IPost {
+  id: string | number;
+  title: string;
+  description: string;
+}
+interface PostItemProps {
+  post: IPost;
+}
+
+const PostItem: FC<PostItemProps> = ({ post }) => {
   return (
     <div className={styles.listItem}>
-      <h3>{postData.title}</h3>
-      <p>{postData.description}</p>
+      <h3>{post?.title}</h3>
+      <p>{post?.description}</p>
     </div>
   );
 };

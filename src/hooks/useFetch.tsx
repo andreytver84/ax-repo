@@ -7,17 +7,29 @@ type Params = {
   };
   body?: unknown;
 };
-interface useFetchResult<T, U, B> {
-  data: T;
-  error: U;
-  loading: B;
+// interface useFetchResult<T, U, B> {
+//   data: T;
+//   error: U;
+//   loading: B;
+// }
+
+// const defaultState: useFetchResult<
+//   object | null,
+//   object | null | unknown,
+//   boolean
+// > = {
+//   data: null,
+//   error: null,
+//   loading: false,
+// };
+
+interface useFetchResult {
+  data: object | null | [];
+  error: object | null | unknown;
+  loading: boolean;
 }
 
-const defaultState: useFetchResult<
-  object | null,
-  object | null | unknown,
-  boolean
-> = {
+const defaultState: useFetchResult = {
   data: null,
   error: null,
   loading: false,
@@ -45,6 +57,6 @@ export const useFetch = (url: string, params: Params) => {
       }
     };
     fetchData();
-  }, []);
+  }, [url]);
   return state;
 };
