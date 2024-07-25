@@ -1,16 +1,19 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <>
       App
       <nav>
-        {/* <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/dashboard">Dashboard</NavLink> */}
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/dashboard">Dashboard</a>
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/about">About</NavLink>
+        </li>
+        <li>
+          <NavLink to="/dashboard">Dashboard</NavLink>
+        </li>
       </nav>
     </>
   );
