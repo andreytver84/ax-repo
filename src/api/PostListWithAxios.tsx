@@ -4,9 +4,6 @@ import { useApiStore } from "../store/useApiStore";
 
 const PostListWithAxios = () => {
   const [postData, setPostData] = useState([]);
-  // useEffect(() => {
-  //   api.get().then((response) => setPostData(response.data));
-  // }, []);
 
   const fetchPosts = useApiStore((state) => state.fetchPosts);
   const getData = useApiStore((state) => state.getPosts);
