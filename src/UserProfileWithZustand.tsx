@@ -9,20 +9,20 @@ const user = {
 const UserProfileWithZustand = () => {
   const ctx = useStore();
 
-  useEffect(() => {
-    const localStorageInfoLogged = localStorage.getItem("isLoggedIn");
-    const localStorageInfoTheme = localStorage.getItem("theme");
+  // useEffect(() => {
+  //   const localStorageInfoLogged = localStorage.getItem("isLoggedIn");
+  //   const localStorageInfoTheme = localStorage.getItem("theme");
 
-    if (localStorageInfoTheme === "light") {
-      ctx.setTheme("light");
-    } else if (localStorageInfoTheme === "dark") {
-      ctx.setTheme("dark");
-    }
+  //   if (localStorageInfoTheme === "light") {
+  //     ctx.setTheme("light");
+  //   } else if (localStorageInfoTheme === "dark") {
+  //     ctx.setTheme("dark");
+  //   }
 
-    if (localStorageInfoLogged === "1") {
-      ctx.onLogin();
-    }
-  }, []);
+  //   if (localStorageInfoLogged === "1") {
+  //     ctx.onLogin();
+  //   }
+  // }, []);
 
   return (
     <div className={`${ctx.theme} userWrap`}>
