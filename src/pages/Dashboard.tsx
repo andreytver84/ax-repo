@@ -1,10 +1,10 @@
-import SignupForm from "../SignupForm";
+import SignupFormWithClsx from "../SignupFormWithClsx";
 
 const Dashboard = () => {
   return (
     <>
       <h1>Dashboard</h1>
-      <SignupForm />
+      <SignupFormWithClsx />
     </>
   );
 };

@@ -20,3 +20,26 @@
   background: #000;
   color: #fff;
 }
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 300px;
+  border: 1px solid #f0f0f0;
+  padding: 40px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 20px 0 5px;
+}
+form button {
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 30px;
+}
+
+.alertInput {
+  border-color: red;
+}
