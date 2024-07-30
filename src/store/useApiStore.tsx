@@ -6,11 +6,7 @@ export const useApiStore = create((set, get) => ({
   fetchPosts: async () => {
     api.interceptors.response.use((response) => response);
     const data = await api.get().then((response) => response.data);
-    set((state) => {
-      return { ...state, postsData: [...data] };
-    });
-  },
-  getPosts: () => {
-    return get().postsData;
+    //console.log(data);
+    set({ postsData: data });
   },
 }));

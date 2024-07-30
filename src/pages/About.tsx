@@ -1,4 +1,4 @@
-import PostListWithAxios from "../api/PostListWithAxios";
+import PostListWithAxios from "../PostListWithAxios";
 
 const About = () => {
   return (
